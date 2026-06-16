@@ -1,199 +1,183 @@
-// script.js - Mini-Site Portfólio FCJ - Sênior com Cores de Tecnologia
+// script.js - Portfólio Felipe Caires Jaques
 
-document.addEventListener("DOMContentLoaded", () => {
+const GITHUB_USER = 'FelipeCJ07';
 
-  // --- Atualiza o ano no rodapé ---
-  const currentYearSpan = document.getElementById('current-year');
-  if (currentYearSpan) {
-    currentYearSpan.textContent = new Date().getFullYear();
+const LANG_COLORS = {
+  JavaScript: '#f1e05a', TypeScript: '#3178c6', Python: '#3572A5',
+  HTML: '#e34c26', CSS: '#563d7c', 'Jupyter Notebook': '#DA5B0B',
+  Shell: '#89e051', Java: '#b07219', 'C#': '#178600',
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // --- Ano no rodapé ---
+  const yearSpan = document.getElementById('current-year');
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+  // --- Observer de fade-in reutilizável ---
+  const appearObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('appear');
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  function observeFade(el) {
+    el.classList.add('fade-in');
+    appearObserver.observe(el);
   }
 
-  // --- Validação e Envio de Formulário (Simulado) ---
-  const form = document.getElementById("form-contato");
-  const formStatus = document.querySelector(".form-status");
+  document.querySelectorAll('section, .project-card, .skill-category, form').forEach(observeFade);
 
-  if (form) { // Garante que o formulário existe na página
-    form.addEventListener("submit", async function (e) {
+  // --- Repositórios do GitHub (dinâmico) ---
+  function escapeHtml(str) {
+    const d = document.createElement('div');
+    d.textContent = str;
+    return d.innerHTML;
+  }
+
+  function repoCard(r) {
+    const el = document.createElement('article');
+    el.className = 'project-card repo-card';
+    const lang = r.language;
+    const langHtml = lang
+      ? `<span class="lang"><span class="lang-dot" style="background:${LANG_COLORS[lang] || '#888'}"></span>${escapeHtml(lang)}</span>`
+      : '';
+    const topics = (r.topics || []).slice(0, 4).map(t => `<span>${escapeHtml(t)}</span>`).join('');
+    const homepage = r.homepage
+      ? `<a href="${r.homepage}" target="_blank" rel="noopener noreferrer" class="project-link">Demo <i class="fas fa-external-link-alt"></i></a>`
+      : '';
+    el.innerHTML = `
+      <div class="project-info">
+        <h4><i class="fas fa-folder-open"></i> ${escapeHtml(r.name)}</h4>
+        <p>${r.description ? escapeHtml(r.description) : 'Sem descrição.'}</p>
+        <div class="project-tech">${topics}</div>
+        <div class="repo-meta">
+          ${langHtml}
+          <span class="stars"><i class="fas fa-star"></i> ${r.stargazers_count}</span>
+        </div>
+        <div class="repo-links">
+          <a href="${r.html_url}" target="_blank" rel="noopener noreferrer" class="project-link">Ver no GitHub <i class="fab fa-github"></i></a>
+          ${homepage}
+        </div>
+      </div>`;
+    return el;
+  }
+
+  async function loadRepos() {
+    const grid = document.getElementById('repos-grid');
+    if (!grid) return;
+    try {
+      const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=100`);
+      if (!res.ok) throw new Error('GitHub API');
+      let repos = await res.json();
+      repos = repos.filter(r => !r.fork && r.name.toLowerCase() !== GITHUB_USER.toLowerCase());
+      repos.sort((a, b) =>
+        (b.stargazers_count - a.stargazers_count) ||
+        (new Date(b.updated_at) - new Date(a.updated_at))
+      );
+      grid.innerHTML = '';
+      if (!repos.length) {
+        grid.innerHTML = '<p class="repos-loading">Nenhum repositório público encontrado.</p>';
+        return;
+      }
+      repos.forEach(r => {
+        const card = repoCard(r);
+        grid.appendChild(card);
+        observeFade(card);
+      });
+    } catch (err) {
+      grid.innerHTML = `<p class="repos-loading">Não foi possível carregar os repositórios agora. ` +
+        `<a href="https://github.com/${GITHUB_USER}?tab=repositories" target="_blank" rel="noopener noreferrer">Ver todos no GitHub</a>.</p>`;
+    }
+  }
+  loadRepos();
+
+  // --- Formulário de contato (via mailto) ---
+  const form = document.getElementById('form-contato');
+  const formStatus = document.querySelector('.form-status');
+
+  function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
+  }
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-
-      let isValid = true;
-      const nameInput = form.querySelector('input[name="name"]');
-      const emailInput = form.querySelector('input[name="email"]');
-      const messageTextarea = form.querySelector('textarea[name="message"]');
-
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
       const nameError = document.getElementById('name-error');
       const emailError = document.getElementById('email-error');
       const messageError = document.getElementById('message-error');
 
-      // Limpa mensagens de erro e status anteriores
-      nameError.textContent = '';
-      emailError.textContent = '';
-      messageError.textContent = '';
+      [nameError, emailError, messageError].forEach(el => el.textContent = '');
       formStatus.textContent = '';
       formStatus.classList.remove('success', 'error');
 
-      const name = nameInput.value.trim();
-      const email = emailInput.value.trim();
-      const message = messageTextarea.value.trim();
+      let valid = true;
+      if (!name) { nameError.textContent = 'Digite seu nome.'; valid = false; }
+      if (!email) { emailError.textContent = 'Digite seu e-mail.'; valid = false; }
+      else if (!validateEmail(email)) { emailError.textContent = 'E-mail inválido.'; valid = false; }
+      if (!message) { messageError.textContent = 'Digite sua mensagem.'; valid = false; }
 
-      // Validação de Nome
-      if (!name) {
-        nameError.textContent = 'Por favor, digite seu nome.';
-        isValid = false;
-      }
-
-      // Validação de E-mail
-      if (!email) {
-        emailError.textContent = 'Por favor, digite seu e-mail.';
-        isValid = false;
-      } else if (!validateEmail(email)) {
-        emailError.textContent = 'Por favor, insira um e-mail válido.';
-        isValid = false;
-      }
-
-      // Validação de Mensagem
-      if (!message) {
-        messageError.textContent = 'Por favor, digite sua mensagem.';
-        isValid = false;
-      }
-
-      if (!isValid) {
-        formStatus.textContent = 'Por favor, corrija os erros no formulário.';
+      if (!valid) {
+        formStatus.textContent = 'Corrija os campos destacados.';
         formStatus.classList.add('error');
         return;
       }
 
-      // Simulação de envio assíncrono
-      const submitButton = form.querySelector('button[type="submit"]');
-      submitButton.disabled = true;
-      submitButton.textContent = 'Enviando...';
-      formStatus.textContent = 'Enviando sua mensagem...';
-
-      await new Promise(resolve => setTimeout(resolve, 2500)); // Simula atraso de rede
-
-      // Simulação de sucesso/erro (você conectaria a um backend aqui)
-      const simulationSuccess = true; // Mude para false para testar o erro
-
-      if (simulationSuccess) {
-        console.log("Formulário simulado enviado com sucesso!");
-        formStatus.textContent = "Mensagem enviada com sucesso! Em breve entrarei em contato.";
-        formStatus.classList.add('success');
-        form.reset();
-      } else {
-        console.error("Erro simulado no envio do formulário.");
-        formStatus.textContent = "Houve um erro ao enviar sua mensagem. Tente novamente.";
-        formStatus.classList.add('error');
-      }
-
-      submitButton.disabled = false;
-      submitButton.textContent = 'Enviar Mensagem';
+      const subject = encodeURIComponent(`Contato do portfólio — ${name}`);
+      const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+      window.location.href = `mailto:Felipe_Caires_Jaques@protonmail.com?subject=${subject}&body=${body}`;
+      formStatus.textContent = 'Abrindo seu aplicativo de e-mail…';
+      formStatus.classList.add('success');
+      form.reset();
     });
   }
 
-
-  // Validação de e-mail (regex aprimorada)
-  function validateEmail(email) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-  }
-
-  // --- Efeito fade-in para seções ao rolar (IntersectionObserver) ---
-  const faders = document.querySelectorAll("section, .project-card, .skill-category, form");
-
-  const appearOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -80px 0px"
-  };
-
-  const appearOnScroll = new IntersectionObserver(function (entries, observer) {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-      entry.target.classList.add("appear");
-      observer.unobserve(entry.target);
-    });
-  }, appearOptions);
-
-  faders.forEach(fader => {
-    fader.classList.add("fade-in");
-    appearOnScroll.observe(fader);
-  });
-
-  // --- Animação das Barras de Progresso de Habilidades ---
+  // --- Barras de progresso ---
   const skillSection = document.getElementById('habilidades');
-  const progressBars = document.querySelectorAll('.progress-bar');
-
-  const skillObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        progressBars.forEach(bar => {
-          const width = bar.style.width; // Obtém a largura definida no CSS inline
-          bar.style.width = '0%'; // Reseta a largura para animar novamente se visível
-          setTimeout(() => { // Pequeno delay para garantir a animação
-            bar.style.width = width;
-          }, 100);
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
   if (skillSection) {
+    const skillObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        document.querySelectorAll('.progress-bar').forEach(bar => {
+          const w = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => { bar.style.width = w; }, 100);
+        });
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.4 });
     skillObserver.observe(skillSection);
   }
 
-
-  // --- Scroll Spy para Navegação Ativa ---
-  const sections = document.querySelectorAll('section');
+  // --- Scroll spy ---
   const navLinks = document.querySelectorAll('nav a');
-
-  const observerOptions = {
-    root: null,
-    rootMargin: '-50% 0px -49% 0px',
-    threshold: 0
-  };
-
-  const sectionObserver = new IntersectionObserver((entries) => {
+  const spyObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
       const id = entry.target.getAttribute('id');
-      const navLink = document.querySelector(`nav a[href="#${id}"]`);
-
-      if (entry.isIntersecting) {
-        navLinks.forEach(link => link.classList.remove('active'));
-        if (navLink) {
-          navLink.classList.add('active');
-        }
-      }
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${id}`));
     });
-  }, observerOptions);
+  }, { rootMargin: '-50% 0px -49% 0px' });
+  document.querySelectorAll('section').forEach(s => spyObserver.observe(s));
 
-  sections.forEach(section => {
-    sectionObserver.observe(section);
-  });
-
-  // --- Efeito de Máquina de Escrever no Título Principal ---
-  const typewriterElement = document.querySelector('.typewriter-text');
-  if (typewriterElement) {
-    const text = typewriterElement.textContent;
-    typewriterElement.textContent = '';
-
+  // --- Efeito máquina de escrever ---
+  const tw = document.querySelector('.typewriter-text');
+  if (tw) {
+    const text = tw.textContent;
+    tw.textContent = '';
     let i = 0;
-    function typeWriter() {
+    (function type() {
       if (i < text.length) {
-        typewriterElement.textContent += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 80);
+        tw.textContent += text.charAt(i++);
+        setTimeout(type, 90);
       } else {
-        typewriterElement.style.borderRight = 'none';
+        tw.style.borderRight = 'none';
       }
-    }
-    setTimeout(typeWriter, 500);
+    })();
   }
-
-
-  // --- Carrossel de Testemunhos (Removido, pois não está no HTML atual) ---
-  // Se você decidir adicionar uma seção de testemunhos no futuro, precisará
-  // reintroduzir o código JS do carrossel aqui.
-
 });
