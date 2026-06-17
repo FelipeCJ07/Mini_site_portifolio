@@ -14,21 +14,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearSpan = document.getElementById('current-year');
   if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // --- Observer de fade-in reutilizável ---
-  const appearObserver = new IntersectionObserver((entries, obs) => {
+  // --- Observer de fade-in reutilizável (com rede de segurança) ---
+  const supportsIO = 'IntersectionObserver' in window;
+  const appearObserver = supportsIO ? new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       entry.target.classList.add('appear');
       obs.unobserve(entry.target);
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  }, { threshold: 0.05 }) : null;
 
   function observeFade(el) {
     el.classList.add('fade-in');
-    appearObserver.observe(el);
+    if (appearObserver) appearObserver.observe(el);
+    else el.classList.add('appear');
   }
 
   document.querySelectorAll('section, .project-card, .skill-category, form').forEach(observeFade);
+
+  // Rede de segurança: garante que NADA fique invisível (ex.: navegador interno de apps como o LinkedIn)
+  setTimeout(() => {
+    document.querySelectorAll('.fade-in:not(.appear)').forEach(el => el.classList.add('appear'));
+  }, 1500);
 
   // --- Repositórios do GitHub (dinâmico) ---
   function escapeHtml(str) {
@@ -69,7 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById('repos-grid');
     if (!grid) return;
     try {
-      const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=100`);
+      const ctrl = new AbortController();
+      const timeoutId = setTimeout(() => ctrl.abort(), 8000);
+      const res = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?sort=updated&per_page=100`, { signal: ctrl.signal });
+      clearTimeout(timeoutId);
       if (!res.ok) throw new Error('GitHub API');
       let repos = await res.json();
       repos = repos.filter(r => !r.fork && r.name.toLowerCase() !== GITHUB_USER.toLowerCase());
@@ -84,8 +94,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       repos.forEach(r => {
         const card = repoCard(r);
+        card.classList.add('fade-in');
         grid.appendChild(card);
-        observeFade(card);
+        // aparece de forma garantida (sem depender do observer)
+        requestAnimationFrame(() => card.classList.add('appear'));
       });
     } catch (err) {
       grid.innerHTML = `<p class="repos-loading">Não foi possível carregar os repositórios agora. ` +
