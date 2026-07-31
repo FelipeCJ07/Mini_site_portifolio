@@ -2,202 +2,453 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Felipe Caires Jaques — Desenvolvedor & Entusiasta de IA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
 
-  <meta name="description" content="Portfólio de Felipe Caires Jaques — desenvolvedor em transição para a área de IA e dados. Projetos em Python, TypeScript, JavaScript e integração com LLMs.">
-  <meta name="keywords" content="Felipe Caires Jaques, FelipeCJ07, Desenvolvedor, IA, LLM, Python, TypeScript, JavaScript, React, Portfólio, AI Quality Evaluator">
+  <!-- Título e descrição são definidos por assets/js/i18n.js conforme o idioma.
+       Os valores abaixo são o fallback em PT para crawlers sem JavaScript. -->
+  <title>Felipe Caires Jaques — Desenvolvedor &amp; Entusiasta de IA</title>
+  <meta name="description" content="Portfólio de Felipe Caires Jaques — desenvolvedor em transição para IA e dados. Projetos em Python, TypeScript, JavaScript e integração com LLMs.">
   <meta name="author" content="Felipe Caires Jaques">
+  <link rel="canonical" href="https://felipecj07.github.io/Mini_site_portifolio/">
 
-  <meta property="og:title" content="Portfólio de Felipe Caires Jaques">
-  <meta property="og:description" content="Projetos de IA, dados e desenvolvimento web. Em transição de carreira para Inteligência Artificial.">
-  <meta property="og:image" content="https://github.com/FelipeCJ07.png">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://felipecj07.github.io/Mini_site_portifolio/">
+  <meta property="og:title" content="Felipe Caires Jaques — Desenvolvedor &amp; Entusiasta de IA">
+  <meta property="og:description" content="Projetos de IA, dados e desenvolvimento web. Em transição de carreira para Inteligência Artificial.">
+  <!-- TODO: preencher — trocar por um card social 1200x630 do novo visual. -->
+  <meta property="og:image" content="https://github.com/FelipeCJ07.png">
   <meta property="og:locale" content="pt_BR">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Portfólio de Felipe Caires Jaques">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Felipe Caires Jaques — Desenvolvedor &amp; Entusiasta de IA">
   <meta name="twitter:description" content="Projetos de IA, dados e desenvolvimento web.">
   <meta name="twitter:image" content="https://github.com/FelipeCJ07.png">
 
-  <link rel="icon" href="https://github.com/FelipeCJ07.png" type="image/png">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="https://github.com/FelipeCJ07.png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Síncrono de propósito: aplica o idioma antes do primeiro paint. -->
+  <script src="assets/js/i18n.js"></script>
 </head>
-<body itemscope itemtype="http://schema.org/Person">
-  <meta itemprop="name" content="Felipe Caires Jaques">
-  <meta itemprop="jobTitle" content="Desenvolvedor / AI Quality Evaluator">
 
-  <header>
-    <div class="header-content">
-      <h1 class="site-title">Felipe C. J.</h1>
-      <nav role="navigation" aria-label="Navegação Principal do Portfólio">
-        <ul>
-          <li><a href="#home" role="menuitem">Início</a></li>
-          <li><a href="#sobre" role="menuitem">Sobre Mim</a></li>
-          <li><a href="#habilidades" role="menuitem">Habilidades</a></li>
-          <li><a href="#projetos" role="menuitem">Projetos</a></li>
-          <li><a href="#contato" role="menuitem">Contato</a></li>
-        </ul>
+<body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Pular para o conteúdo principal</a>
+
+  <!-- Sprite de ícones (substitui a dependência do Font Awesome) -->
+  <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3-1.9 0-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zm1.8 13H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 1 .8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7c0-.9-.8-1.7-1.8-1.7z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5v2.2z"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 17.3-6.2 3.7 1.7-7L2 9.2l7.2-.6L12 2l2.8 6.6 7.2.6-5.5 4.8 1.7 7z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 5a3 3 0 0 0-6 0 3 3 0 0 0-2 5.2A3 3 0 0 0 6 16a3 3 0 0 0 6 1zm0 0a3 3 0 0 1 6 0 3 3 0 0 1 2 5.2A3 3 0 0 1 18 16a3 3 0 0 1-6 1z"/></symbol>
+    <symbol id="i-tools" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a4 4 0 0 0 5 5l-9.4 9.4a2.8 2.8 0 0 1-4-4z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m5 5 3 3"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M3 6h18M3 12h18M3 18h18"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+  </svg>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="brand" href="#top" data-i18n-attr="aria-label:a11y.home">
+        <span class="brand__mark">FCJ<span class="brand__star">★</span></span>
+      </a>
+
+      <nav class="nav__links" data-i18n-attr="aria-label:a11y.nav">
+        <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+        <a href="#sobre" data-i18n="nav.about">Sobre</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#experiencia" data-i18n="nav.experience">Experiência</a>
+        <a href="#contato" data-i18n="nav.contact">Contato</a>
       </nav>
+
+      <div class="nav__end">
+        <div class="lang" role="group" data-i18n-attr="aria-label:a11y.langGroup">
+          <button type="button" data-lang-btn="pt" data-i18n-attr="aria-label:a11y.langPt" aria-pressed="true">PT</button>
+          <span class="lang__sep" aria-hidden="true">/</span>
+          <button type="button" data-lang-btn="en" data-i18n-attr="aria-label:a11y.langEn" aria-pressed="false">EN</button>
+        </div>
+
+        <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mobile-menu"
+                data-i18n-attr="aria-label:a11y.menuOpen">
+          <svg class="burger__open" aria-hidden="true"><use href="#i-menu"/></svg>
+          <svg class="burger__close" aria-hidden="true"><use href="#i-close"/></svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-content">
-        <p class="intro-text">Olá, eu sou</p>
-        <h2 class="typewriter-text">Felipe C. J.</h2>
-        <h3 class="role-text">Desenvolvedor &amp; Entusiasta de IA / Dados</h3>
-        <p class="description">Em transição de carreira para a área de <strong>Inteligência Artificial</strong>, construindo projetos reais que unem dados, automação e LLMs.</p>
-        <div class="hero-actions">
-          <a href="#projetos" class="cta" role="button" aria-label="Ver meus projetos">Ver Projetos</a>
-          <a href="https://github.com/FelipeCJ07" target="_blank" rel="noopener noreferrer" class="cta cta-ghost" aria-label="Ver meu GitHub"><i class="fab fa-github"></i> GitHub</a>
+  <!-- Overlay full-screen (mobile) -->
+  <div class="mobile" id="mobile-menu" hidden>
+    <nav class="mobile__nav" data-i18n-attr="aria-label:a11y.nav">
+      <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+      <a href="#sobre" data-i18n="nav.about">Sobre</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#experiencia" data-i18n="nav.experience">Experiência</a>
+      <a href="#contato" data-i18n="nav.contact">Contato</a>
+    </nav>
+    <div class="mobile__social">
+      <a href="https://github.com/FelipeCJ07" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a>
+      <a href="https://www.linkedin.com/in/felipe-caires-jaques" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+      <a href="mailto:Felipe_Caires_Jaques@protonmail.com" aria-label="E-mail"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+    </div>
+  </div>
+
+  <main id="main">
+    <span id="top"></span>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__grain" aria-hidden="true"></div>
+      <div class="hero__vignette" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Portfólio</p>
+        <h1 class="hero__title" id="hero-title" data-i18n-html="hero.name">Felipe<br>Caires Jaques</h1>
+        <p class="hero__tagline" data-i18n="hero.tagline">Desenvolvedor &amp; Entusiasta de IA / Dados</p>
+        <p class="hero__blurb" data-i18n-html="hero.blurb"></p>
+        <div class="hero__actions">
+          <a class="btn btn--accent" href="#projetos" data-i18n="hero.ctaProjects">Ver Projetos</a>
+          <a class="btn btn--ghost" href="#contato" data-i18n="hero.ctaContact">Fale Comigo</a>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#projetos" tabindex="-1" aria-hidden="true">
+        <span data-i18n="hero.scroll">Role para baixo</span>
+        <svg><use href="#i-chevron-down"/></svg>
+      </a>
+    </section>
+
+    <!-- ===================== PROJETOS (painéis) ===================== -->
+    <section id="projetos" class="panels" aria-labelledby="projetos-title">
+      <header class="section-head reveal">
+        <p class="eyebrow" data-i18n="projects.eyebrow">Trabalho selecionado</p>
+        <h2 id="projetos-title" data-i18n="projects.title">Projetos em Destaque</h2>
+      </header>
+
+      <article class="panel reveal">
+        <div class="panel__media">
+          <img src="https://raw.githubusercontent.com/FelipeCJ07/ai-quality-evaluator/main/docs/screenshot.png"
+               data-i18n-attr="alt:proj.aiqe.name" alt="AI Quality Evaluator" loading="lazy" decoding="async" width="1280" height="720">
+        </div>
+        <div class="panel__scrim" aria-hidden="true"></div>
+        <div class="panel__body">
+          <p class="panel__num" aria-hidden="true">01</p>
+          <h3 class="panel__title" data-i18n="proj.aiqe.name">AI Quality Evaluator</h3>
+          <p class="panel__pitch" data-i18n="proj.aiqe.pitch"></p>
+          <ul class="tags"><li>JavaScript</li><li>LLM Evaluation</li><li>Gemini</li><li>Prompt Engineering</li></ul>
+          <div class="panel__actions">
+            <a class="btn btn--accent" href="https://felipecj07.github.io/ai-quality-evaluator/" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="projects.live">Ver ao vivo</span><svg aria-hidden="true"><use href="#i-external"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="https://github.com/FelipeCJ07/ai-quality-evaluator" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="projects.code">Código</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel reveal">
+        <div class="panel__media">
+          <img src="https://raw.githubusercontent.com/FelipeCJ07/PitchCraft-AI/main/docs/screenshot-dashboard.png"
+               data-i18n-attr="alt:proj.pitchcraft.name" alt="PitchCraft AI" loading="lazy" decoding="async" width="1280" height="720">
+        </div>
+        <div class="panel__scrim" aria-hidden="true"></div>
+        <div class="panel__body">
+          <p class="panel__num" aria-hidden="true">02</p>
+          <h3 class="panel__title" data-i18n="proj.pitchcraft.name">PitchCraft AI</h3>
+          <p class="panel__pitch" data-i18n="proj.pitchcraft.pitch"></p>
+          <ul class="tags"><li>Python</li><li>Flask</li><li>React</li><li>Vite</li><li>Tailwind</li></ul>
+          <div class="panel__actions">
+            <a class="btn btn--accent" href="https://felipecj07.github.io/PitchCraft-AI/" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="projects.live">Ver ao vivo</span><svg aria-hidden="true"><use href="#i-external"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="https://github.com/FelipeCJ07/PitchCraft-AI" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="projects.code">Código</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel reveal">
+        <div class="panel__media">
+          <img src="https://raw.githubusercontent.com/FelipeCJ07/BurnoutCheck-IA/main/Images/anexos/36_Interface_Final_Funcionando.png"
+               data-i18n-attr="alt:proj.burnout.name" alt="BurnoutCheck IA" loading="lazy" decoding="async" width="1280" height="720">
+        </div>
+        <div class="panel__scrim" aria-hidden="true"></div>
+        <div class="panel__body">
+          <p class="panel__num" aria-hidden="true">03</p>
+          <h3 class="panel__title" data-i18n="proj.burnout.name">BurnoutCheck IA</h3>
+          <p class="panel__pitch" data-i18n="proj.burnout.pitch"></p>
+          <ul class="tags"><li>Python</li><li>Gemini</li><li>OpenCV</li><li>Gradio</li></ul>
+          <div class="panel__actions">
+            <a class="btn btn--accent" href="https://github.com/FelipeCJ07/BurnoutCheck-IA" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="projects.code">Código</span>
+            </a>
+            <span class="btn btn--muted" data-i18n="projects.noDemo">Sem demo ao vivo</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel reveal">
+        <div class="panel__media">
+          <img src="https://raw.githubusercontent.com/FelipeCJ07/Credit-card-validator/master/docs/screenshot.png"
+               data-i18n-attr="alt:proj.creditcard.name" alt="Validador de Cartões" loading="lazy" decoding="async" width="1280" height="720">
+        </div>
+        <div class="panel__scrim" aria-hidden="true"></div>
+        <div class="panel__body">
+          <p class="panel__num" aria-hidden="true">04</p>
+          <h3 class="panel__title" data-i18n="proj.creditcard.name">Validador de Cartões</h3>
+          <p class="panel__pitch" data-i18n="proj.creditcard.pitch"></p>
+          <ul class="tags"><li>React</li><li>JavaScript</li><li>Python</li><li>Unit Tests</li></ul>
+          <div class="panel__actions">
+            <a class="btn btn--accent" href="https://felipecj07.github.io/credit-card-validator/" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="projects.live">Ver ao vivo</span><svg aria-hidden="true"><use href="#i-external"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="https://github.com/FelipeCJ07/Credit-card-validator" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="projects.code">Código</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel reveal">
+        <div class="panel__media">
+          <img src="https://raw.githubusercontent.com/FelipeCJ07/Conversor-de-Unidades/main/docs/screenshot.png"
+               data-i18n-attr="alt:proj.conversor.name" alt="Conversor Universal" loading="lazy" decoding="async" width="1280" height="720">
+        </div>
+        <div class="panel__scrim" aria-hidden="true"></div>
+        <div class="panel__body">
+          <p class="panel__num" aria-hidden="true">05</p>
+          <h3 class="panel__title" data-i18n="proj.conversor.name">Conversor Universal</h3>
+          <p class="panel__pitch" data-i18n="proj.conversor.pitch"></p>
+          <ul class="tags"><li>JavaScript</li><li>HTML</li><li>CSS</li><li>localStorage</li></ul>
+          <div class="panel__actions">
+            <a class="btn btn--accent" href="https://felipecj07.github.io/Conversor-de-Unidades/" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="projects.live">Ver ao vivo</span><svg aria-hidden="true"><use href="#i-external"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="https://github.com/FelipeCJ07/Conversor-de-Unidades" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true"><use href="#i-github"/></svg><span data-i18n="projects.code">Código</span>
+            </a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===================== NEWSWIRE (repos do GitHub) ===================== -->
+    <section id="repos" class="section newswire" aria-labelledby="repos-title">
+      <header class="section-head reveal">
+        <p class="eyebrow" data-i18n="repos.eyebrow">Direto do GitHub</p>
+        <h2 id="repos-title" data-i18n="repos.title">Todos os Repositórios</h2>
+        <p class="section-lead" data-i18n="repos.description"></p>
+      </header>
+      <div class="cards" id="repos-grid" aria-live="polite" aria-busy="true">
+        <p class="cards__status" data-i18n="repos.loading">Carregando repositórios…</p>
+      </div>
+    </section>
+
+    <!-- ===================== SOBRE ===================== -->
+    <section id="sobre" class="section about" aria-labelledby="sobre-title">
+      <div class="about__grid">
+        <div class="about__media reveal">
+          <img src="https://github.com/FelipeCJ07.png" data-i18n-attr="alt:about.photoAlt"
+               alt="Retrato de Felipe Caires Jaques" loading="lazy" decoding="async" width="460" height="460">
+        </div>
+        <div class="about__text reveal">
+          <p class="eyebrow" data-i18n="about.eyebrow">Quem sou</p>
+          <h2 id="sobre-title" data-i18n="about.title">Sobre</h2>
+          <p class="about__location">
+            <svg aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="about.location">São Paulo, Brasil</span>
+          </p>
+          <p data-i18n-html="about.p1"></p>
+          <p data-i18n-html="about.p2"></p>
+          <p data-i18n-html="about.p3"></p>
         </div>
       </div>
     </section>
 
-    <section id="sobre" aria-labelledby="sobre-titulo">
-      <h3 id="sobre-titulo">Sobre Mim</h3>
-      <div class="about-content">
-        <div class="about-image">
-          <img src="https://github.com/FelipeCJ07.png" alt="Avatar de Felipe Caires Jaques no GitHub" loading="lazy">
-        </div>
-        <div class="about-text">
-          <p>Sou <strong>Felipe Caires Jaques</strong>, de São Paulo, em transição de carreira para a área de <strong>Inteligência Artificial e Dados</strong> — com foco em <strong>avaliação de qualidade de IA</strong> (AI Quality Evaluator), testes de chatbots e análise de dados.</p>
-          <p>Aprendo na prática construindo projetos de verdade: de ferramentas de IA multimodal e automação com LLMs a aplicações web completas e validadores com testes. Trabalho com <strong>Python</strong>, <strong>TypeScript</strong>, <strong>JavaScript</strong> e <strong>React</strong>.</p>
-          <p>Gosto de avaliar, testar e melhorar o comportamento de sistemas de IA — unindo curiosidade técnica, atenção a detalhes e foco em qualidade.</p>
-          <div class="about-actions">
-            <a href="https://github.com/FelipeCJ07" target="_blank" rel="noopener noreferrer" class="btn-download-cv"><i class="fab fa-github"></i> Ver GitHub</a>
-            <a href="https://www.linkedin.com/in/felipe-caires-jaques" target="_blank" rel="noopener noreferrer" class="btn-download-cv"><i class="fab fa-linkedin"></i> LinkedIn</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- ===================== SKILLS ===================== -->
+    <section id="skills" class="section skills" aria-labelledby="skills-title">
+      <header class="section-head reveal">
+        <p class="eyebrow" data-i18n="skills.eyebrow">Ferramentas</p>
+        <h2 id="skills-title" data-i18n="skills.title">Skills &amp; Stack</h2>
+        <p class="section-lead" data-i18n="skills.description"></p>
+      </header>
 
-    <section id="habilidades" aria-labelledby="habilidades-titulo">
-      <h3 id="habilidades-titulo">Minhas Habilidades</h3>
-      <p class="section-description">As ferramentas que uso para construir e avaliar soluções — do front-end à inteligência artificial.</p>
-      <div class="skills-container">
-        <div class="skill-category">
-          <h4><i class="fas fa-code icon-spacing"></i> Desenvolvimento</h4>
-          <div class="skill-item"><span>JavaScript &amp; TypeScript</span><div class="progress-bar-container"><div class="progress-bar" style="width: 90%;"></div></div></div>
-          <div class="skill-item"><span>Python</span><div class="progress-bar-container"><div class="progress-bar" style="width: 85%;"></div></div></div>
-          <div class="skill-item"><span>HTML5 &amp; CSS3</span><div class="progress-bar-container"><div class="progress-bar" style="width: 95%;"></div></div></div>
-          <div class="skill-item"><span>React</span><div class="progress-bar-container"><div class="progress-bar" style="width: 80%;"></div></div></div>
-          <div class="skill-item"><span>Node.js &amp; APIs REST</span><div class="progress-bar-container"><div class="progress-bar" style="width: 80%;"></div></div></div>
+      <div class="skills__groups">
+        <div class="skills__group reveal">
+          <h3><svg aria-hidden="true"><use href="#i-code"/></svg><span data-i18n="skills.dev">Desenvolvimento</span></h3>
+          <ul class="chips">
+            <li>JavaScript</li><li>TypeScript</li><li>Python</li><li>React</li>
+            <li>HTML5</li><li>CSS3</li><li>Node.js</li><li data-i18n="skill.apis">APIs REST</li>
+          </ul>
         </div>
-
-        <div class="skill-category">
-          <h4><i class="fas fa-brain icon-spacing"></i> IA &amp; Dados</h4>
-          <div class="skill-item"><span>Avaliação de Qualidade de IA</span><div class="progress-bar-container"><div class="progress-bar" style="width: 90%;"></div></div></div>
-          <div class="skill-item"><span>Prompt Engineering</span><div class="progress-bar-container"><div class="progress-bar" style="width: 92%;"></div></div></div>
-          <div class="skill-item"><span>Integração de LLMs (Claude, Gemini, OpenAI)</span><div class="progress-bar-container"><div class="progress-bar" style="width: 85%;"></div></div></div>
-          <div class="skill-item"><span>Análise de Dados (Python / Jupyter)</span><div class="progress-bar-container"><div class="progress-bar" style="width: 75%;"></div></div></div>
+        <div class="skills__group reveal">
+          <h3><svg aria-hidden="true"><use href="#i-brain"/></svg><span data-i18n="skills.ai">IA &amp; Dados</span></h3>
+          <ul class="chips">
+            <li data-i18n="skill.aiEval">Avaliação de Qualidade de IA</li>
+            <li data-i18n="skill.prompt">Prompt Engineering</li>
+            <li data-i18n="skill.llm">Integração de LLMs</li>
+            <li>Claude</li><li>Gemini</li><li>OpenAI</li>
+            <li data-i18n="skill.dataAnalysis">Análise de Dados</li>
+            <li>Jupyter</li>
+          </ul>
         </div>
-
-        <div class="skill-category">
-          <h4><i class="fas fa-tools icon-spacing"></i> Ferramentas</h4>
-          <div class="skill-item"><span>Git &amp; GitHub</span><div class="progress-bar-container"><div class="progress-bar" style="width: 88%;"></div></div></div>
-          <div class="skill-item"><span>Tailwind CSS</span><div class="progress-bar-container"><div class="progress-bar" style="width: 85%;"></div></div></div>
-          <div class="skill-item"><span>Vite / Build tools</span><div class="progress-bar-container"><div class="progress-bar" style="width: 75%;"></div></div></div>
+        <div class="skills__group reveal">
+          <h3><svg aria-hidden="true"><use href="#i-tools"/></svg><span data-i18n="skills.tools">Ferramentas</span></h3>
+          <ul class="chips">
+            <li>Git</li><li>GitHub</li><li>Tailwind CSS</li>
+            <li data-i18n="skill.buildTools">Vite / Build tools</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section id="projetos" aria-labelledby="projetos-titulo">
-      <h3 id="projetos-titulo">Meus Projetos</h3>
-      <p class="section-description">Projetos em destaque e todos os meus repositórios públicos — atualizados automaticamente direto do GitHub.</p>
+    <!-- ===================== EXPERIÊNCIA ===================== -->
+    <!-- TODO: preencher — o repositório original não tinha dados de experiência.
+         Edite os textos em assets/js/i18n.js (chaves exp.1.* / exp.2.* / exp.3.*)
+         ou remova esta <section> e o link "Experiência" da nav. -->
+    <section id="experiencia" class="section timeline-section" aria-labelledby="exp-title">
+      <header class="section-head reveal">
+        <p class="eyebrow" data-i18n="exp.eyebrow">Trajetória</p>
+        <h2 id="exp-title" data-i18n="exp.title">Experiência</h2>
+      </header>
 
-      <h4 class="subsection-title"><i class="fas fa-star"></i> Destaques</h4>
-      <div class="project-grid featured-grid">
-        <article class="project-card">
-          <img src="https://raw.githubusercontent.com/FelipeCJ07/PitchCraft-AI/main/docs/screenshot-dashboard.png" alt="Dashboard do PitchCraft AI" loading="lazy" onerror="this.style.display='none'">
-          <div class="project-info">
-            <h4>🎤 PitchCraft AI</h4>
-            <p>Inteligência comercial com IA (Flask + React) que gera narrativas de vendas e apresentações personalizadas por perfil de cliente.</p>
-            <div class="project-tech"><span>Python</span><span>Flask</span><span>React</span><span>IA</span></div>
-            <a href="https://github.com/FelipeCJ07/PitchCraft-AI" target="_blank" rel="noopener noreferrer" class="project-link">Ver no GitHub <i class="fab fa-github"></i></a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <img src="https://raw.githubusercontent.com/FelipeCJ07/BurnoutCheck-IA/main/Images/anexos/36_Interface_Final_Funcionando.png" alt="Interface do BurnoutCheck IA" loading="lazy" onerror="this.style.display='none'">
-          <div class="project-info">
-            <h4>🧠 BurnoutCheck IA</h4>
-            <p>Check-in de bem-estar multimodal com Google Gemini + visão computacional (OpenCV), em notebook Colab com interface Gradio.</p>
-            <div class="project-tech"><span>Python</span><span>Gemini</span><span>OpenCV</span><span>Gradio</span></div>
-            <a href="https://github.com/FelipeCJ07/BurnoutCheck-IA" target="_blank" rel="noopener noreferrer" class="project-link">Ver no GitHub <i class="fab fa-github"></i></a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <img src="https://raw.githubusercontent.com/FelipeCJ07/Credit-card-validator/master/docs/screenshot.png" alt="Validador de cartão de crédito" loading="lazy" onerror="this.style.display='none'">
-          <div class="project-info">
-            <h4>💳 Validador de Cartões</h4>
-            <p>Identifica a bandeira e valida números de cartão com o algoritmo de Luhn. React/Vite + versão Python com 13 testes unitários.</p>
-            <div class="project-tech"><span>React</span><span>JavaScript</span><span>Python</span><span>Testes</span></div>
-            <a href="https://github.com/FelipeCJ07/Credit-card-validator" target="_blank" rel="noopener noreferrer" class="project-link">Ver no GitHub <i class="fab fa-github"></i></a>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <img src="https://raw.githubusercontent.com/FelipeCJ07/Conversor-de-Unidades/main/docs/screenshot.png" alt="Conversor Universal de unidades" loading="lazy" onerror="this.style.display='none'">
-          <div class="project-info">
-            <h4>🌐 Conversor Universal</h4>
-            <p>Conversor de unidades em JavaScript puro: 7 categorias, conversão em tempo real, histórico local e tema claro/escuro.</p>
-            <div class="project-tech"><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
-            <a href="https://github.com/FelipeCJ07/Conversor-de-Unidades" target="_blank" rel="noopener noreferrer" class="project-link">Ver no GitHub <i class="fab fa-github"></i></a>
-          </div>
-        </article>
-      </div>
-
-      <h4 id="repos" class="subsection-title"><i class="fab fa-github"></i> Todos os Repositórios</h4>
-      <div id="repos-grid" class="project-grid repos-grid" aria-live="polite">
-        <p class="repos-loading"><i class="fas fa-spinner fa-spin"></i> Carregando repositórios do GitHub…</p>
-      </div>
+      <ol class="timeline">
+        <li class="timeline__item reveal">
+          <p class="timeline__period" data-i18n="exp.1.period"></p>
+          <h3 class="timeline__role" data-i18n="exp.1.role"></h3>
+          <p class="timeline__org" data-i18n="exp.1.org"></p>
+          <ul class="timeline__bullets">
+            <li data-i18n="exp.1.bullet1"></li>
+            <li data-i18n="exp.1.bullet2"></li>
+          </ul>
+        </li>
+        <li class="timeline__item reveal">
+          <p class="timeline__period" data-i18n="exp.2.period"></p>
+          <h3 class="timeline__role" data-i18n="exp.2.role"></h3>
+          <p class="timeline__org" data-i18n="exp.2.org"></p>
+          <ul class="timeline__bullets">
+            <li data-i18n="exp.2.bullet1"></li>
+            <li data-i18n="exp.2.bullet2"></li>
+          </ul>
+        </li>
+        <li class="timeline__item reveal">
+          <p class="timeline__period" data-i18n="exp.3.period"></p>
+          <h3 class="timeline__role" data-i18n="exp.3.role"></h3>
+          <p class="timeline__org" data-i18n="exp.3.org"></p>
+          <ul class="timeline__bullets">
+            <li data-i18n="exp.3.bullet1"></li>
+            <li data-i18n="exp.3.bullet2"></li>
+          </ul>
+        </li>
+      </ol>
     </section>
 
-    <section id="contato" aria-labelledby="contato-titulo">
-      <h3 id="contato-titulo">Vamos Conversar!</h3>
-      <p class="section-description">Interessado em colaborar, contratar ou trocar uma ideia? Fale comigo!</p>
-      <form id="form-contato" aria-labelledby="contato-titulo">
-        <div class="form-group">
-          <label for="name" class="sr-only">Seu nome</label>
-          <input type="text" id="name" placeholder="Seu nome completo" required name="name" autocomplete="name">
-          <span class="error-message" id="name-error" aria-live="polite"></span>
-        </div>
-        <div class="form-group">
-          <label for="email" class="sr-only">Seu e-mail</label>
-          <input type="email" id="email" placeholder="Seu melhor e-mail" required name="email" autocomplete="email">
-          <span class="error-message" id="email-error" aria-live="polite"></span>
-        </div>
-        <div class="form-group">
-          <label for="message" class="sr-only">Sua mensagem</label>
-          <textarea id="message" placeholder="Escreva sua mensagem..." required name="message"></textarea>
-          <span class="error-message" id="message-error" aria-live="polite"></span>
-        </div>
-        <button type="submit" aria-label="Enviar mensagem por e-mail">Enviar Mensagem</button>
-        <div class="form-status" aria-live="polite"></div>
-      </form>
+    <!-- ===================== CONTATO ===================== -->
+    <section id="contato" class="section contact" aria-labelledby="contato-title">
+      <div class="contact__inner">
+        <header class="section-head reveal">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Próximo passo</p>
+          <h2 id="contato-title" data-i18n="contact.title">Vamos Conversar</h2>
+          <p class="section-lead" data-i18n="contact.description"></p>
+        </header>
 
-      <div class="contact-info">
-        <p>Ou me encontre em:</p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/felipe-caires-jaques" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/FelipeCJ07" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="mailto:Felipe_Caires_Jaques@protonmail.com" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
+        <form id="contact-form" class="form reveal" novalidate>
+          <div class="form__row">
+            <label class="sr-only" for="name" data-i18n="contact.formNameLabel">Seu nome</label>
+            <input type="text" id="name" name="name" autocomplete="name" required
+                   aria-describedby="name-error" data-i18n-attr="placeholder:contact.formName">
+            <span class="form__error" id="name-error" aria-live="polite"></span>
+          </div>
+          <div class="form__row">
+            <label class="sr-only" for="email" data-i18n="contact.formEmailLabel">Seu e-mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" required
+                   aria-describedby="email-error" data-i18n-attr="placeholder:contact.formEmail">
+            <span class="form__error" id="email-error" aria-live="polite"></span>
+          </div>
+          <div class="form__row">
+            <label class="sr-only" for="message" data-i18n="contact.formMessageLabel">Sua mensagem</label>
+            <textarea id="message" name="message" rows="5" required
+                      aria-describedby="message-error" data-i18n-attr="placeholder:contact.formMessage"></textarea>
+            <span class="form__error" id="message-error" aria-live="polite"></span>
+          </div>
+          <button type="submit" class="btn btn--accent btn--block" data-i18n="contact.submit">Enviar Mensagem</button>
+          <p class="form__status" id="form-status" aria-live="polite"></p>
+        </form>
+
+        <div class="contact__social reveal">
+          <p data-i18n="contact.or">Ou me encontre em</p>
+          <div class="socials">
+            <a href="https://github.com/FelipeCJ07" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a>
+            <a href="https://www.linkedin.com/in/felipe-caires-jaques" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+            <a href="mailto:Felipe_Caires_Jaques@protonmail.com" aria-label="E-mail"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+            <!-- TODO: preencher — adicionar X/Twitter ou outra rede, se houver. -->
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; <span id="current-year"></span> Felipe Caires Jaques — feito com HTML, CSS e JavaScript.</p>
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="brand__mark">FCJ<span class="brand__star">★</span></span>
+        <p class="footer__tagline" data-i18n="footer.tagline"></p>
+      </div>
+
+      <div class="socials socials--footer">
+        <a href="https://github.com/FelipeCJ07" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a>
+        <a href="https://www.linkedin.com/in/felipe-caires-jaques" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+        <a href="mailto:Felipe_Caires_Jaques@protonmail.com" aria-label="E-mail"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
+      </div>
+
+      <div class="lang lang--footer" role="group" data-i18n-attr="aria-label:a11y.langGroup">
+        <button type="button" data-lang-btn="pt" data-i18n-attr="aria-label:a11y.langPt" aria-pressed="true">PT</button>
+        <span class="lang__sep" aria-hidden="true">/</span>
+        <button type="button" data-lang-btn="en" data-i18n-attr="aria-label:a11y.langEn" aria-pressed="false">EN</button>
+      </div>
+
+      <p class="footer__legal">
+        © <span id="year"></span> Felipe Caires Jaques. <span data-i18n="footer.rights"></span>
+        <span class="footer__built" data-i18n="footer.built"></span>
+      </p>
+    </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <button type="button" class="to-top" id="to-top" data-i18n-attr="aria-label:a11y.top">
+    <svg aria-hidden="true"><use href="#i-arrow-up"/></svg>
+  </button>
+
+  <noscript>
+    <div class="noscript">
+      <h2>Felipe Caires Jaques — Desenvolvedor &amp; Entusiasta de IA / Dados</h2>
+      <p>Em transição de carreira para Inteligência Artificial, construindo projetos reais que unem
+         dados, automação e LLMs. Trabalho com Python, TypeScript, JavaScript e React, com foco em
+         avaliação de qualidade de IA.</p>
+      <p>Projetos em destaque: AI Quality Evaluator, PitchCraft AI, BurnoutCheck IA,
+         Validador de Cartões e Conversor Universal.</p>
+      <p>
+        <a href="https://github.com/FelipeCJ07">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/felipe-caires-jaques">LinkedIn</a> ·
+        <a href="mailto:Felipe_Caires_Jaques@protonmail.com">E-mail</a>
+      </p>
+    </div>
+  </noscript>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
