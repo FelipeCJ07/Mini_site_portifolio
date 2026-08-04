@@ -154,7 +154,7 @@ if (navLinks.length && 'IntersectionObserver' in window) {
     },
     { rootMargin: '-45% 0px -50% 0px' }
   );
-  ['projetos', 'sobre', 'skills', 'experiencia', 'contato'].forEach((id) => {
+  ['projetos', 'sobre', 'skills', 'contato'].forEach((id) => {
     const el = document.getElementById(id);
     if (el) spy.observe(el);
   });

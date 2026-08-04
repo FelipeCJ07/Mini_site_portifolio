@@ -1,35 +1,39 @@
-# 🎬 Portfólio — Felipe Caires Jaques
+# 👨‍💻 Portfólio — Felipe Caires Jaques
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/docs/Web/JavaScript)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> Portfólio pessoal (one-page) de Felipe Caires Jaques — desenvolvedor em transição para
-> **IA e dados**. Visual cinematográfico inspirado na linguagem da Rockstar Games: preto
-> absoluto, tipografia condensada gigante e painéis de projeto full-bleed.
-> **Bilíngue PT/EN**, sem dependências e sem build.
+> Portfólio pessoal (one-page) de **Felipe Caires Jaques** — desenvolvedor em transição de
+> carreira para **Inteligência Artificial e Dados**, com foco em avaliação de qualidade de
+> IA, testes de chatbots e análise de dados.
+>
+> Visual escuro e cinematográfico, **bilíngue PT/EN**, feito com HTML, CSS e JavaScript
+> puro — sem frameworks, sem build e sem dependências.
 
-🔗 **Ao vivo:** https://felipecj07.github.io/Mini_site_portifolio/
+🔗 **Acesse:** https://felipecj07.github.io/Mini_site_portifolio/
 
 ---
 
-## ✨ O que tem aqui
+## ✨ O que tem no site
 
-- 🎥 **Hero cinematográfico** em tela cheia, com parallax sutil e vinheta
-- 🖼️ **Painéis de projeto full-bleed** — um por projeto, com zoom no hover e revelação ao rolar
-- 🔄 **Newswire de repositórios** — todos os repos públicos, direto da API do GitHub
-- 🌍 **Bilíngue PT/EN** com persistência em `localStorage` e detecção do idioma do navegador
-- ♿ **Acessível (WCAG AA)** — todos os pares de cor passam de 4.5:1, navegação por teclado,
-  skip-link, landmarks semânticos e foco visível
-- 🎛️ **`prefers-reduced-motion`** respeitado: parallax, reveal e scroll-snap desligam
-- 📱 **Responsivo de 320px a 4K**, sem scroll horizontal
-- 🪶 **Zero dependências de runtime** — nenhuma biblioteca, ícones em SVG inline
+- 🎬 **Apresentação em tela cheia** com o nome, a área de atuação e chamadas diretas
+- 🖼️ **Projetos em destaque** — um painel por projeto, com a imagem real da aplicação,
+  a stack usada e links para a demo ao vivo e o código
+- 🔄 **Todos os repositórios** listados automaticamente pela API do GitHub, com linguagem,
+  tópicos e estrelas — nunca fica desatualizado
+- 🙋 **Sobre** e **Skills** organizadas por área (desenvolvimento, IA & dados, ferramentas)
+- ✉️ **Contato** com formulário (abre o e-mail via `mailto`) e links de GitHub e LinkedIn
+- 🌍 **Bilíngue PT/EN**, com detecção do idioma do navegador e escolha memorizada
+- ♿ **Acessível (WCAG AA)** — contraste conferido, navegação por teclado, skip-link,
+  HTML semântico e foco visível
+- 📱 **Responsivo de 320px a 4K** e com `prefers-reduced-motion` respeitado
 
-## 🛠️ Stack
+## 🛠️ Tecnologias
 
 HTML5 · CSS3 (custom properties, grid, `clamp()`) · JavaScript vanilla · GitHub REST API ·
-Google Fonts (Anton + Inter)
+Google Fonts (Anton + Inter) · ícones em SVG inline
 
 ## 🚀 Rodando localmente
 
@@ -51,9 +55,10 @@ Depois acesse <http://localhost:8000>.
 ├── .nojekyll               # impede o Jekyll de processar o site no Pages
 └── assets/
     ├── css/style.css       # design system + layout + responsivo
+    ├── img/og-cover.png    # card 1200x630 para preview em redes sociais
     └── js/
         ├── i18n.js         # 👈 TODOS os textos do site (PT e EN)
-        └── main.js         # nav, menu, reveal, parallax, repos, formulário
+        └── main.js         # nav, menu, animações, repositórios, formulário
 ```
 
 ## ✏️ Como editar o conteúdo
@@ -81,7 +86,7 @@ Troque uma linha em [`assets/css/style.css`](assets/css/style.css):
 
 ```css
 :root {
-  --accent: #FCAF17;   /* cor de destaque */
+  --accent: #FCAF17;     /* cor de destaque */
   --accent-ink: #0a0a0a; /* cor do texto EM CIMA do accent */
 }
 ```
@@ -93,8 +98,8 @@ contraste AA.
 
 Os 5 painéis ficam em `index.html` (bloco `<section id="projetos">`). Cada painel tem
 imagem, tags e links fixos no HTML; **apenas o nome e o pitch** vêm do `i18n.js`
-(chaves `proj.*`). Os demais repositórios aparecem sozinhos na seção Newswire — não
-precisa mexer em nada.
+(chaves `proj.*`). Os demais repositórios aparecem sozinhos na seção de repositórios —
+não precisa mexer em nada.
 
 ## 🌐 Deploy (GitHub Pages)
 

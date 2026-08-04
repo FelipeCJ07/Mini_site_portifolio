@@ -34,7 +34,6 @@ const STRINGS = {
     'nav.projects': 'Projetos',
     'nav.about': 'Sobre',
     'nav.skills': 'Skills',
-    'nav.experience': 'Experiência',
     'nav.contact': 'Contato',
 
     /* ---------- Hero ---------- */
@@ -111,28 +110,6 @@ const STRINGS = {
     'skill.apis': 'APIs REST',
     'skill.buildTools': 'Vite / Build tools',
 
-    /* ---------- Experiência ---------- */
-    'exp.eyebrow': 'Trajetória',
-    'exp.title': 'Experiência',
-    /* TODO: preencher — não havia dados de experiência no repositório original.
-       Substitua os 3 blocos abaixo pelos seus cargos reais (ou apague a seção
-       inteira do index.html se preferir não exibi-la). */
-    'exp.1.role': 'TODO: preencher — Cargo',
-    'exp.1.org': 'TODO: Empresa / Projeto',
-    'exp.1.period': 'TODO: 20XX — Atual',
-    'exp.1.bullet1': 'TODO: preencher — principal responsabilidade ou entrega.',
-    'exp.1.bullet2': 'TODO: preencher — resultado concreto (número, impacto).',
-    'exp.2.role': 'TODO: preencher — Cargo',
-    'exp.2.org': 'TODO: Empresa / Projeto',
-    'exp.2.period': 'TODO: 20XX — 20XX',
-    'exp.2.bullet1': 'TODO: preencher — principal responsabilidade ou entrega.',
-    'exp.2.bullet2': 'TODO: preencher — resultado concreto (número, impacto).',
-    'exp.3.role': 'TODO: preencher — Formação ou Curso',
-    'exp.3.org': 'TODO: Instituição',
-    'exp.3.period': 'TODO: 20XX — 20XX',
-    'exp.3.bullet1': 'TODO: preencher — foco de estudo.',
-    'exp.3.bullet2': 'TODO: preencher — projeto ou certificação relevante.',
-
     /* ---------- Contato ---------- */
     'contact.eyebrow': 'Próximo passo',
     'contact.title': 'Vamos Conversar',
@@ -182,7 +159,6 @@ const STRINGS = {
     'nav.projects': 'Work',
     'nav.about': 'About',
     'nav.skills': 'Skills',
-    'nav.experience': 'Experience',
     'nav.contact': 'Contact',
 
     /* ---------- Hero ---------- */
@@ -258,26 +234,6 @@ const STRINGS = {
     'skill.dataAnalysis': 'Data Analysis',
     'skill.apis': 'REST APIs',
     'skill.buildTools': 'Vite / Build tools',
-
-    /* ---------- Experience ---------- */
-    'exp.eyebrow': 'Track record',
-    'exp.title': 'Experience',
-    /* TODO: fill in — no experience data existed in the original repository. */
-    'exp.1.role': 'TODO: fill in — Role',
-    'exp.1.org': 'TODO: Company / Project',
-    'exp.1.period': 'TODO: 20XX — Present',
-    'exp.1.bullet1': 'TODO: fill in — main responsibility or deliverable.',
-    'exp.1.bullet2': 'TODO: fill in — concrete result (number, impact).',
-    'exp.2.role': 'TODO: fill in — Role',
-    'exp.2.org': 'TODO: Company / Project',
-    'exp.2.period': 'TODO: 20XX — 20XX',
-    'exp.2.bullet1': 'TODO: fill in — main responsibility or deliverable.',
-    'exp.2.bullet2': 'TODO: fill in — concrete result (number, impact).',
-    'exp.3.role': 'TODO: fill in — Education or Course',
-    'exp.3.org': 'TODO: Institution',
-    'exp.3.period': 'TODO: 20XX — 20XX',
-    'exp.3.bullet1': 'TODO: fill in — field of study.',
-    'exp.3.bullet2': 'TODO: fill in — relevant project or certification.',
 
     /* ---------- Contact ---------- */
     'contact.eyebrow': 'Next step',
