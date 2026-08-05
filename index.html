@@ -28,7 +28,7 @@
   <meta name="twitter:image" content="https://felipecj07.github.io/Mini_site_portifolio/assets/img/og-cover.png">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="https://github.com/FelipeCJ07.png">
+  <link rel="apple-touch-icon" href="https://github.com/FelipeCJ07.png?size=180">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -263,7 +263,13 @@
     <section id="sobre" class="section about" aria-labelledby="sobre-title">
       <div class="about__grid">
         <div class="about__media reveal">
-          <img src="https://github.com/FelipeCJ07.png" data-i18n-attr="alt:about.photoAlt"
+          <!-- A foto vem do avatar do GitHub: trocar lá atualiza o site sozinho.
+               O ?size= faz o GitHub servir a imagem já redimensionada. -->
+          <img src="https://github.com/FelipeCJ07.png?size=460"
+               srcset="https://github.com/FelipeCJ07.png?size=460 460w,
+                       https://github.com/FelipeCJ07.png?size=920 920w"
+               sizes="(max-width: 900px) 320px, 460px"
+               data-i18n-attr="alt:about.photoAlt"
                alt="Retrato de Felipe Caires Jaques" loading="lazy" decoding="async" width="460" height="460">
         </div>
         <div class="about__text reveal">
