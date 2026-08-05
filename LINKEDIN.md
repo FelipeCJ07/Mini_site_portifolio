@@ -101,15 +101,68 @@ Open to opportunities in AI, AI quality and data. Let's talk.
 
 Ordem sugerida — o portfólio primeiro, porque ele leva a todo o resto:
 
-| # | Item | Link | Legenda sugerida |
-|---|---|---|---|
-| 1 | **Portfólio** | https://felipecj07.github.io/Mini_site_portifolio/ | Meu portfólio — projetos de IA, dados e web |
-| 2 | **AI Quality Evaluator** | https://felipecj07.github.io/ai-quality-evaluator/ | Avaliador de respostas de IA com rubrica de qualidade |
-| 3 | **PitchCraft AI** | https://felipecj07.github.io/PitchCraft-AI/ | IA que gera narrativas de vendas personalizadas |
-| 4 | **BurnoutCheck IA** | https://github.com/FelipeCJ07/BurnoutCheck-IA | Check-in de bem-estar com IA multimodal |
+| # | Item | Link |
+|---|---|---|
+| 1 | **Portfólio** | https://felipecj07.github.io/Mini_site_portifolio/ |
+| 2 | **AI Quality Evaluator** | https://felipecj07.github.io/ai-quality-evaluator/ |
+| 3 | **PitchCraft AI** | https://felipecj07.github.io/PitchCraft-AI/ |
+| 4 | **BurnoutCheck IA** | https://github.com/FelipeCJ07/BurnoutCheck-IA |
 
 > 💡 Os três primeiros têm **demo ao vivo** — priorize-os, porque o recrutador clica e vê
 > funcionando sem instalar nada.
+
+### 📌 Item 1 — Portfólio: título, descrição e miniatura
+
+Ao adicionar o link, o LinkedIn puxa título, descrição e imagem automaticamente — mas
+**os três são editáveis**. Vale editar: o texto automático vem da meta description e é
+genérico. Contagem de caracteres entre colchetes.
+
+**Miniatura:** [`assets/img/linkedin-featured.png`](assets/img/linkedin-featured.png)
+(1200×627). É uma arte dedicada, com menos elementos e tipografia maior que a do card
+social — o card do Featured é exibido pequeno (~360px), e texto miúdo some nesse tamanho.
+
+#### 🇧🇷 Português
+
+**Título** *(recomendado)* `[55]`
+```
+Portfólio — Projetos de IA, Dados e Desenvolvimento Web
+```
+
+**Título — alternativa curta** `[32]`
+```
+Portfólio — Felipe Caires Jaques
+```
+
+**Descrição — foco no conteúdo** *(recomendada)* `[173]`
+```
+Portfólio bilíngue com 5 projetos em destaque: avaliação de qualidade de IA, geração de narrativas com LLMs, visão computacional e web. Feito em HTML, CSS e JavaScript puro.
+```
+
+**Descrição — foco na história** `[135]`
+```
+Em transição para IA e dados, eu aprendo construindo. Aqui estão os projetos que saíram disso — todos com código aberto e demo ao vivo.
+```
+
+#### 🇺🇸 English
+
+**Título** `[49]`
+```
+Portfolio — AI, Data and Web Development Projects
+```
+
+**Descrição — foco no conteúdo** `[168]`
+```
+Bilingual portfolio with 5 featured projects: AI quality evaluation, LLM-generated sales narratives, computer vision and web. Built with plain HTML, CSS and JavaScript.
+```
+
+**Descrição — foco na história** `[137]`
+```
+Transitioning into AI and data, I learn by building. These are the projects that came out of it — all open source, most with a live demo.
+```
+
+> ⚠️ O LinkedIn corta a descrição em ~2 linhas no card e mostra o resto atrás de
+> *"…ver mais"*. Nas duas opções acima, a informação essencial está **na primeira frase**,
+> justamente por isso.
 
 ---
 
